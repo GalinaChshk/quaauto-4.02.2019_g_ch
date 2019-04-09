@@ -29,9 +29,9 @@ public class LinkedinLoginTest {
     @DataProvider
     public Object[][] validDataProvider() {
         return new Object[][]{
-              //  { "linkedin.tst.yanina@gmail.com", "Test123!" },
-             //   { "linkedin.TST.yanina@gmail.com", "Test123!" },
-                { " linkedin.TST.yanina@gmail.com ", "Test123!" }
+              //  { "galina.chshk@gmail.com", "g.analoliivna" },
+             //   { "galina.chshk@gmail.com", "g.analoliivna" },
+                { " galina.chshk@gmail.com ", "g.analoliivna" }
         };
     }
 
@@ -51,8 +51,8 @@ public class LinkedinLoginTest {
     public Object[][] emptyValuesProvider() {
         return new Object[][]{
                 { "", "" },
-                { "linkedin.TST.yanina@gmail.com", "" },
-                { "", "Test123!" }
+                { "galina.chshk@gmail.com", "" },
+                { "", "g.analoliivna" }
         };
     }
 
@@ -69,8 +69,8 @@ public class LinkedinLoginTest {
     @DataProvider
     public Object[][] invalidDataProvider() {
         return new Object[][]{
-               // { "linkedin.TST.yanina@gmail.com", "12345", "", "Hmm, that's not the right password. Please try again or request a new one." },
-                { "linkedin.TST.yanina@@gmail.com", "Test123!" , "Этот адрес эл. почты не зарегистрирован в LinkedIn. Повторите попытку", ""},
+               // { "galina.chshk@gmail.com", "12345", "", "Hmm, that's not the right password. Please try again or request a new one." },
+                { "galina.chshk@gmail.com", "g.analoliivna" , "Этот адрес эл. почты не зарегистрирован в LinkedIn. Повторите попытку", ""},
         };
     }
 
