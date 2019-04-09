@@ -7,34 +7,42 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 
 public class BadCodeExample {
+
     public static void main(String[] args) {
-        System.out.println("Hello, world ;)");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\25na8\\Downloads\\chromedriver_win32 (2)\\chromedriver.exe");
+        System.out.println("Hello World!!!");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com");
 
         String searchTerm = "Selenium";
+        WebElement searchField = driver.findElement(By.xpath("//input[@name='q']"));
+        searchField.sendKeys(searchTerm);
+        searchField.sendKeys(Keys.ENTER);
 
-        WebElement searchField = driver.findElement(By.name("q"));
-        searchField.sendKeys("Selenium");
-        searchField.sendKeys(Keys.RETURN);
+        List<WebElement> searchResults =
+                driver.findElements(By.xpath("//div[@class='srg']/div[@class='g']"));
 
-        List<WebElement> searchResults = driver.findElements(By.xpath("//div[@class='srg']/div[@class='g']"));
+        System.out.println(searchResults.size());
 
-        int iterator = 0;
+        //For each WebElement in searchResults print Text
+        int iterator =0;
         for (WebElement searchResult : searchResults) {
             iterator++;
             String searchResultString = searchResult.getText();
 
-            System.out.println("Result number: " + iterator);
-            System.out.println(searchResult.getText());
+            System.out.println("Result number: "+iterator);
+            System.out.println(searchResultString);
 
-            if(searchResultString.contains("Selenium")) {
+            if(searchResultString.toLowerCase().contains(searchTerm.toLowerCase())) {
                 System.out.println("SearchTerm found");
             } else {
                 System.out.println("SearchTerm not found");
-
             }
+
         }
+
+        /*for (int i =0; i<searchResults.size(); i++) {
+            System.out.println("Result number: "+i);
+            System.out.println(searchResults.get(i).getText());
+        }*/
     }
 }
